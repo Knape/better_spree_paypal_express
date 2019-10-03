@@ -15,4 +15,12 @@ Spree::Core::Engine.add_routes do
       end
     end
   end
+
+  namespace :api, defaults: { format: 'json' } do
+    namespace :v1 do
+      post '/pay/index', to: 'pay#index', as: 'pay_index'
+      post '/pay/confirm', to: 'pay#confirm', as: 'pay_confirm'
+    end
+  end
+
 end
